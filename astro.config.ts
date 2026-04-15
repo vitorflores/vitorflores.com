@@ -15,6 +15,7 @@ import { imageConfig } from './src/utils/image-config'
 import path from 'path'
 
 export default defineConfig({
+  output: 'static',
   site: themeConfig.site.website,
   image: {
     service: {
