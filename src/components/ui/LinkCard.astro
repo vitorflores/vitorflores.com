@@ -12,8 +12,8 @@
     }
 
     try {
-      // Use our own proxy API
-      const proxyUrl = `/api/proxy?url=${encodeURIComponent(url)}`
+      // Use allorigins.win as a CORS proxy for static hosting compatibility
+      const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), 3000) // 3 second timeout
 
@@ -27,7 +27,7 @@
         throw new Error('Failed to fetch metadata')
       }
 
-      const html = await response.text()
+      const { contents: html } = await response.json()
 
       // Parse HTML to extract metadata
       const parser = new DOMParser()

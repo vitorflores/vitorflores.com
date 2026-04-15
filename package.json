@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "prebuild": "pnpm exec tsx scripts/toggle-proxy.ts",
-    "build": "pnpm run typecheck && pnpm run prebuild && astro build",
+    "build": "pnpm run typecheck && astro build",
     "typecheck": "pnpm run typecheck:ts && astro check",
     "typecheck:ts": "tsc --noEmit",
     "preview": "astro preview",
